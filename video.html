@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
+
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="css/default.css" id="theme-color">
+    <title>Vídeo</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        function vidplay() {
+            var vid = document.getElementById("Videobox");
+            var button = document.getElementById("btn_play");
+            if (vid.paused) {
+                vid.play();
+                document.getElementById("pipoca").innerHTML = "Ae, pipoca quentinha !";
+                button.textContent = "||";
+
+            } else {
+                vid.pause();
+                document.getElementById("pipoca").innerHTML = " ";
+                alert("Não para não, tava legal !");
+                button.textContent = ">";
+            }
+        }
+
+        function restart() {
+            var vid = document.getElementById("Videobox");
+            video.currentTime = 0;
+        }
+
+        function skip(value) {
+            var vid = document.getElementById("Videobox");
+            video.currentTime += value;
+        }
+
+
+        function myFunction() {
+            var vid = document.getElementById("Videobox");
+            alert("Acabou, gostou do vídeo ? Acesse : http://www.bigbuckbunny.org/ e veja mais !");
+        }      
+    </script>
+
+    </head>
+
+    <body>
+
+        <video id="Videobox" onended="myFunction()" autoplay>
+            <source src="videos/OS SONS DAS LETRAS_ALFABETO.mp4" type="video/mp4" />
+
+        </video>
+
+        <div id="controles">
+            <button id="btn_restart" onclick="restart();">[]</button>
+            <button id="btn_rew" onclick="skip(-10)">&lt;&lt;</button>
+            <button id="btn_play" onclick="vidplay()">&gt;</button>
+            <button id="btn_fastFwd" onclick="skip(10)">&gt;&gt;</button>
+        </div>
+        <p id="pipoca"></p>
+    </body>
+
+</html>
